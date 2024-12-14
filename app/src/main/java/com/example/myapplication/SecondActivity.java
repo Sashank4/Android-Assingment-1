@@ -20,6 +20,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
+import java.util.Objects;
+
 public class SecondActivity extends AppCompatActivity {
 
     @Override
@@ -27,6 +29,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
 
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         // Retrieve data from the Intent
         Intent intent = getIntent();
         String name = intent.getStringExtra("Name");
