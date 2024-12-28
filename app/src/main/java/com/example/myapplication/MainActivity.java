@@ -11,11 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class MainActivity extends AppCompatActivity {
-    EditText enterName;
-    EditText enterAge;
-    EditText enterEmail;
-    Button addButton;
+    private TextInputEditText enterName;
+    private TextInputEditText enterAge;
+    private TextInputEditText enterEmail;
+    private Button addButton;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -36,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 String email = enterEmail.getText().toString();
 
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("Name",name);
-                intent.putExtra("Age", age);
-                intent.putExtra("Email",email);
+                intent.putExtra(Constants.USER_NAME_KEY,name);
+                intent.putExtra(Constants.USER_AGE_KEY, age);
+                intent.putExtra(Constants.USER_EMAIL_KEY,email);
                 startActivity(intent);
 
             }

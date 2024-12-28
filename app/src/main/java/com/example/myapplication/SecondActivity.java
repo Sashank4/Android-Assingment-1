@@ -32,16 +32,16 @@ public class SecondActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         // Retrieve data from the Intent
         Intent intent = getIntent();
-        String name = intent.getStringExtra("Name");
-        String age = intent.getStringExtra("Age");
-        String email = intent.getStringExtra("Email");
+        String name = intent.getStringExtra(Constants.USER_NAME_KEY);
+        String age = intent.getStringExtra(Constants.USER_AGE_KEY);
+        String email = intent.getStringExtra(Constants.USER_EMAIL_KEY);
 
         // Create a new fragment instance and pass data via Bundle
         FirstFragment fragment = new FirstFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("Name", name);
-        bundle.putString("Age", age);
-        bundle.putString("Email", email);
+        bundle.putString(Constants.USER_NAME_KEY, name);
+        bundle.putString(Constants.USER_AGE_KEY, age);
+        bundle.putString(Constants.USER_EMAIL_KEY, email);
         fragment.setArguments(bundle);
 
         // Replace the fragment in the FragmentContainerView
