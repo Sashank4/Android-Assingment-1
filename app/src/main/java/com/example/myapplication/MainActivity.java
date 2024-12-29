@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Constants.USER_AGE_KEY, age);
                 intent.putExtra(Constants.USER_EMAIL_KEY,email);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
             }
         });

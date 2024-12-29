@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,7 +28,9 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("SecondActivity", "onCreate started");
         setContentView(R.layout.second_activity);
+        Log.d("SecondActivity", "started creating layout");
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         // Retrieve data from the Intent
@@ -49,6 +52,11 @@ public class SecondActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.fragmentContainerView, fragment)
                 .commit();
+
+
     }
+
 }
+
+
 
