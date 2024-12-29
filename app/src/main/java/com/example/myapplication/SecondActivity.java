@@ -37,6 +37,7 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra(Constants.USER_NAME_KEY);
         String age = intent.getStringExtra(Constants.USER_AGE_KEY);
+
         String email = intent.getStringExtra(Constants.USER_EMAIL_KEY);
 
         // Create a new fragment instance and pass data via Bundle
