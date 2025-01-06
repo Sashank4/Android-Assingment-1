@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,21 +28,24 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("SecondActivity", "onCreate started");
         setContentView(R.layout.second_activity);
+        Log.d("SecondActivity", "started creating layout");
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         // Retrieve data from the Intent
         Intent intent = getIntent();
-        String name = intent.getStringExtra("Name");
-        String age = intent.getStringExtra("Age");
-        String email = intent.getStringExtra("Email");
+        String name = intent.getStringExtra(Constants.USER_NAME_KEY);
+        String age = intent.getStringExtra(Constants.USER_AGE_KEY);
+
+        String email = intent.getStringExtra(Constants.USER_EMAIL_KEY);
 
         // Create a new fragment instance and pass data via Bundle
         FirstFragment fragment = new FirstFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("Name", name);
-        bundle.putString("Age", age);
-        bundle.putString("Email", email);
+        bundle.putString(Constants.USER_NAME_KEY, name);
+        bundle.putString(Constants.USER_AGE_KEY, age);
+        bundle.putString(Constants.USER_EMAIL_KEY, email);
         fragment.setArguments(bundle);
 
         // Replace the fragment in the FragmentContainerView
@@ -49,6 +53,11 @@ public class SecondActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.fragmentContainerView, fragment)
                 .commit();
+
+
     }
+
 }
+
+
 
